@@ -94,6 +94,7 @@ public class CarrsMod
             event.accept(EXAMPLE_BLOCK_ITEM);
         } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.CAR);
+            event.accept(ModItems.LITHIUM);
         }
     }
 

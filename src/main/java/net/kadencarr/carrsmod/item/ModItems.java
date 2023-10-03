@@ -12,6 +12,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CarrsMod.MOD_ID);
 
     public static final RegistryObject<Item> CAR = ITEMS.register("car", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> LITHIUM = ITEMS.register("lithium", () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

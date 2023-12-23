@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.kadencarr.carrsmod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -52,11 +53,14 @@ public class CarrsMod
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+    public static final RegistryObject<CreativeModeTab> CARRS_MOD_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
+            .icon(() -> ModItems.CAR.get().getDefaultInstance())
+            .title(Component.literal("Carrs Mod"))
             .displayItems((parameters, output) -> {
                 output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                for (Item item: ModItems.returnItems()) {
+                    output.accept(item);
+                }
             }).build());
 
     public CarrsMod()
